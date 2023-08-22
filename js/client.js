@@ -5,9 +5,6 @@ const msgContainer = document.querySelector(".container");
 const userNameForm = document.getElementById('userNameForm');
 const userNameInp = document.getElementById('userName');
 
-
-// const userName = prompt("Enter your name to join:");
-
 const append = (message, position) => {
   const msgElement = document.createElement("div");
   msgElement.innerText = message;
