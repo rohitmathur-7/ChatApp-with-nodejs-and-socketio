@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cool Chat App</title>
     <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
-    <script defer src="js/client.js"></script>
+    <script defer src="src/client.js"></script>
+    <script defer type="module" src="dist/bundle.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,13 +15,22 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
   </head>
   <body>
+    <img src="https://giphy.com/embed/2jRKnOK1jCvf0N6rhk" alt="" />
     <div class="main-container">
       <nav>
         <div>
-          <h1>Cool Chat</h1>
-          <img class="logo" src="assets/logo-removebg-preview.png" alt="" />
+          <h1>Cat App</h1>
+          <img class="logo" src="assets/cat-logo.png" alt="" />
         </div>
       </nav>
       <div class="name-inp">
@@ -30,8 +40,52 @@
         </form>
       </div>
       <div class="main-chat">
-        <div class="container"></div>
+        <div class="container">
+          <div class="stickers-container">
+            <div class="emoji-search">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: #7a7a7a"
+              ></i>
+              <input
+                type="text"
+                name="emoji-search-inp"
+                id="emoji-search-inp"
+              />
+            </div>
+            <div class="search-emojis"></div>
+            <div class="all-emojis"></div>
+          </div>
+        </div>
         <div class="send">
+          <div class="text-additionals">
+            <div class="emojis">
+              <i
+                class="emoji-icon fa-solid fa-face-smile"
+                style="color: #ffffff"
+              ></i>
+            </div>
+            <div class="stickers">
+              <i
+                class="sticker-icon fa-regular fa-note-sticky"
+                style="color: #ffffff"
+              ></i>
+            </div>
+            <div class="gifs">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 256 256"
+                class="gif-icon"
+              >
+                <path
+                  fill="white"
+                  d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM112 144a32 32 0 0 1-64 0v-32a32 32 0 0 1 55.85-21.33a8 8 0 1 1-11.92 10.66A16 16 0 0 0 64 112v32a16 16 0 0 0 32 0v-8h-8a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8Zm32 24a8 8 0 0 1-16 0V88a8 8 0 0 1 16 0Zm56-72h-24v24h16a8 8 0 0 1 0 16h-16v32a8 8 0 0 1-16 0V88a8 8 0 0 1 8-8h32a8 8 0 0 1 0 16Z"
+                />
+              </svg>
+            </div>
+          </div>
           <form action="#" id="send-container">
             <input type="text" name="msgInp" id="msgInp" />
             <button class="btn" type="submit">Send</button>

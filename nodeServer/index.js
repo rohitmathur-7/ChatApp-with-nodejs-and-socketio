@@ -5,7 +5,6 @@ const users = {};
 
 io.on("connection", (socket) => {
   socket.on("new-user-joined", (userName) => {
-    console.log(userName);
     users[socket.id] = userName;
     socket.broadcast.emit("user-joined", userName);
   });
@@ -21,4 +20,4 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("left", users[socket.id]);
     delete users[socket.id];
   });
-});
+})
